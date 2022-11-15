@@ -70,7 +70,7 @@ app.get("/dash",(req,res)=>{
 //         console.log(data)
 //         console.log("Elevated access is active After 48H")
 //       })
-})
+//})
 
 app.listen(process.env.PORT||8080, ()=>{
     console.log("server running")
