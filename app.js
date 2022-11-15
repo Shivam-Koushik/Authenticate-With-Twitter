@@ -9,7 +9,7 @@ const { raw, urlencoded } = require("express")
 const tw = new LoginWithTwitter({
   consumerKey: 'vzypmTkfJH8nmmGzM69apP16Z',
   consumerSecret: 'TGErJM4mkR3dYOxhAkfcm5i55m6AhT5O9oA0WddkpGDWayOZBe',
-    callbackUrl: `http://${process.env.PORT}/sign`
+    callbackUrl: 'https://authenticate-with-twitter-production.up.railway.app/sign'
   })
 
 app.set('view engine','ejs')
