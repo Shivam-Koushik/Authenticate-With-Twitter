@@ -58,20 +58,20 @@ app.get("/dash",(req,res)=>{
    
 })
 
-// app.get("/followers",(req,res)=>{
-//     var T = new Twit({
-//         consumer_key: 'VNkwYoU8lsOHOPlSdcjGUalib',
-//         consumer_secret: 'yUh1Qh0CyD0gNthK0ZuO5SQEwOvfx9Kf9xhc2dVn6frVaqEcqp',
-//         access_token: req.session.user.userToken,
-//         access_token_secret: req.session.user.userTokenSecret
-//       })
-//       console.log(req.session.user.userName)
-//       T.get('followers/ids', { screen_name: req.session.user.userName },  function (err, data, response) {
-//         console.log(data)
-//         console.log("Elevated access is active After 48H")
-//       })
-//})
+app.get("/followers",(req,res)=>{
+    var T = new Twit({
+        consumer_key: 'VNkwYoU8lsOHOPlSdcjGUalib',
+        consumer_secret: 'yUh1Qh0CyD0gNthK0ZuO5SQEwOvfx9Kf9xhc2dVn6frVaqEcqp',
+        access_token: req.session.user.userToken,
+        access_token_secret: req.session.user.userTokenSecret
+      })
+      console.log(req.session.user.userName)
+      T.get('followers/ids', { screen_name: req.session.user.userName },  function (err, data, response) {
+        console.log(data)
+        console.log("Elevated access is active After 48H")
+      })
+})
 
-app.listen(process.env.PORT||8080, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log("server running")
 })  
