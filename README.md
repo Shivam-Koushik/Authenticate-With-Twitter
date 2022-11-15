@@ -1,4 +1,4 @@
 #TO START
 
-node app# Authenticate-with-Twitter
+node app.js
 # Authenticate-With-Twitter
