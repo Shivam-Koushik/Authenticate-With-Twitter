@@ -7,9 +7,9 @@ const Twit = require("twit")
 const { raw, urlencoded } = require("express")
 
 const tw = new LoginWithTwitter({
-    consumerKey: 'VNkwYoU8lsOHOPlSdcjGUalib',
-    consumerSecret: 'yUh1Qh0CyD0gNthK0ZuO5SQEwOvfx9Kf9xhc2dVn6frVaqEcqp',
-    callbackUrl: 'http://localhost:8080/sign'
+  consumerKey: 'vzypmTkfJH8nmmGzM69apP16Z',
+  consumerSecret: 'TGErJM4mkR3dYOxhAkfcm5i55m6AhT5O9oA0WddkpGDWayOZBe',
+    callbackUrl: `http://${process.env.PORT}/sign`
   })
 
 app.set('view engine','ejs')
@@ -59,18 +59,19 @@ app.get("/dash",(req,res)=>{
 })
 
 app.get("/followers",(req,res)=>{
+   console.log(req.session.user)
     var T = new Twit({
-        consumer_key: 'VNkwYoU8lsOHOPlSdcjGUalib',
-        consumer_secret: 'yUh1Qh0CyD0gNthK0ZuO5SQEwOvfx9Kf9xhc2dVn6frVaqEcqp',
+        consumer_key: 'vzypmTkfJH8nmmGzM69apP16Z',
+        consumer_secret: 'TGErJM4mkR3dYOxhAkfcm5i55m6AhT5O9oA0WddkpGDWayOZBe',
         access_token: req.session.user.userToken,
         access_token_secret: req.session.user.userTokenSecret
       })
-      console.log(req.session.user.userName)
       T.get('followers/ids', { screen_name: req.session.user.userName },  function (err, data, response) {
         console.log(data)
         console.log("Elevated access is active After 48H")
       })
 })
+
 
 app.listen(process.env.PORT, ()=>{
     console.log("server running")
