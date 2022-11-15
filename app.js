@@ -7,8 +7,8 @@ const Twit = require("twit")
 const { raw, urlencoded } = require("express")
 
 const tw = new LoginWithTwitter({
-  consumerKey: 'vzypmTkfJH8nmmGzM69apP16Z',
-  consumerSecret: 'TGErJM4mkR3dYOxhAkfcm5i55m6AhT5O9oA0WddkpGDWayOZBe',
+  consumerKey: '6cfVKVJAprMcxApn2LRBIciH4',
+  consumerSecret: '8W9ZKuhuCcVk2ETiSctEOmSfMDSHthSQDjOc36cAZpNjgBfp4f',
     callbackUrl: 'https://authenticate-with-twitter-production.up.railway.app/sign'
   })
 
@@ -61,8 +61,8 @@ app.get("/dash",(req,res)=>{
 app.get("/followers",(req,res)=>{
    console.log(req.session.user)
     var T = new Twit({
-        consumer_key: 'vzypmTkfJH8nmmGzM69apP16Z',
-        consumer_secret: 'TGErJM4mkR3dYOxhAkfcm5i55m6AhT5O9oA0WddkpGDWayOZBe',
+        consumer_key: '6cfVKVJAprMcxApn2LRBIciH4',
+        consumer_secret: '8W9ZKuhuCcVk2ETiSctEOmSfMDSHthSQDjOc36cAZpNjgBfp4f',
         access_token: req.session.user.userToken,
         access_token_secret: req.session.user.userTokenSecret
       })
